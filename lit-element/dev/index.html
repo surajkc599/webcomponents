@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;my-element> Demo</title>
+    <script type="module" src="../components/button/simple-button.js"></script>
+    <script type="module" src="../components/icon/simple-icon.js"></script>
+    <script
+      type="module"
+      src="../components/progressbar/progressbar.component.js"
+    ></script>
+  </head>
+  <style>
+    body {
+      background-color: #f2f1f1;
+      margin: 0;
+    }
+    body .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+    }
+    body .container simple-button {
+      margin: 12px;
+    }
+
+    body section {
+      display: flex;
+      margin: 20px;
+    }
+  </style>
+  <script>
+    function onClickPrimary() {
+      console.log('Primary');
+    }
+    function onClickSecondary() {
+      console.log('Secondary');
+    }
+    function animateProgress() {
+      const progress = document.querySelector('simple-progressbar');
+      const progressInterval = setInterval(() => {
+        progress.value = progress.value + 10;
+        progress.setAttribute('value', progress.value);
+        if (progress.value > 100) {
+          clearInterval(progressInterval);
+        }
+      }, 300);
+    }
+  </script>
+  <body>
+    <main class="container">
+      <section>
+        <simple-button type="primary" onclick="onClickPrimary()"
+          >Primary</simple-button
+        >
+        <simple-button type="secondary" onclick="onClickSecondary()"
+          >Secondary</simple-button
+        >
+        <simple-button type="secondary">
+          <simple-icon name="menu"></simple-icon>
+        </simple-button>
+        <simple-button type="primary">
+          <simple-icon name="search"></simple-icon>
+        </simple-button>
+        <simple-button type="primary">
+          Text
+          <simple-icon name="search" class="right"></simple-icon>
+        </simple-button>
+        <simple-button type="primary">
+          <simple-icon name="search" class="left"></simple-icon>
+          Search
+        </simple-button>
+      </section>
+      <section>
+        <simple-progressbar
+          value="5"
+          style="width: 600px;"
+        ></simple-progressbar>
+      </section>
+      <simple-button onclick="animateProgress()">Increment</simple-button>
+    </main>
+  </body>
+</html>

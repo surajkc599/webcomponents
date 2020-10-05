@@ -1,0 +1,104 @@
+{
+  "version": "experimental",
+  "tags": [
+    {
+      "name": "simple-button",
+      "path": "./src\\components\\button\\simple-button.ts",
+      "description": "A Button Component.",
+      "attributes": [
+        {
+          "name": "type",
+          "description": "The type of button for visualization.",
+          "type": "\"primary\" | \"secondary\"",
+          "default": "\"primary\""
+        },
+        {
+          "name": "classes",
+          "description": "The class applied based on the type of button.",
+          "type": "Object",
+          "default": "{\"simple-button\":true}"
+        }
+      ],
+      "properties": [
+        {
+          "name": "type",
+          "attribute": "type",
+          "description": "The type of button for visualization.",
+          "type": "\"primary\" | \"secondary\"",
+          "default": "\"primary\""
+        },
+        {
+          "name": "classes",
+          "attribute": "classes",
+          "description": "The class applied based on the type of button.",
+          "type": "Object",
+          "default": "{\"simple-button\":true}"
+        }
+      ],
+      "slots": [
+        {
+          "name": "",
+          "description": "This element has a slot"
+        }
+      ],
+      "cssParts": [
+        {
+          "name": "button",
+          "description": "The button"
+        }
+      ]
+    },
+    {
+      "name": "simple-icon",
+      "path": "./src\\components\\icon\\simple-icon.ts",
+      "attributes": [
+        {
+          "name": "name",
+          "type": "string"
+        }
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "attribute": "name",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "simple-progressbar",
+      "path": "./src\\components\\progressbar\\progressbar.component.ts",
+      "attributes": [
+        {
+          "name": "value",
+          "type": "number",
+          "default": "0"
+        },
+        {
+          "name": "classes",
+          "type": "Object",
+          "default": "{\"simple-progressbar\":true}"
+        }
+      ],
+      "properties": [
+        {
+          "name": "value",
+          "attribute": "value",
+          "type": "number",
+          "default": "0"
+        },
+        {
+          "name": "classes",
+          "attribute": "classes",
+          "type": "Object",
+          "default": "{\"simple-progressbar\":true}"
+        },
+        {
+          "name": "styles",
+          "type": "Object",
+          "default": "{}"
+        }
+      ]
+    }
+  ]
+}
