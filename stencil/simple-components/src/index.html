@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/simple-components.esm.js"></script>
+    <script nomodule src="/build/simple-components.js"></script>
+  </head>
+  <style>
+    body {
+      background-color: #f2f1f1;
+      margin: 0;
+    }
+    body .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+    }
+  </style>
+    <script>
+      function animateProgress() {
+        const progress = document.querySelector('simple-progressbar');
+        progress.addEventListener('statusUpdate', (event) => {
+          console.log(event);
+        })
+        // Reset back to starting point
+        if (progress.value > 100) {
+          progress.setAttribute('value', 5);
+        }
+  
+        // Update value every interval of 300ms to see how WEB component reacts!
+        const progressInterval = setInterval(() => {
+          progress.setAttribute('value', progress.value + 10);
+          if (progress.value > 100) {
+            clearInterval(progressInterval);
+          }
+        }, 300);
+      }
+
+      setTimeout(()=> {
+        this.animateProgress();
+      }, 3000)
+    </script>
+  <body>
+    <main class="container">
+      <!-- <my-component first="Angular" last="'Don't call me a framework' JS"></my-component> -->
+      <simple-progressbar value="5" style="width: 600px"></simple-progressbar>
+    </main>
+  </body>
+</html>
