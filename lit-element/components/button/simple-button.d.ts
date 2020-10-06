@@ -19,9 +19,4 @@ export declare class SimpleButtonElement extends LitElement {
     attributeChangedCallback(name: string, oldVal: string, newVal: string): void;
     render(): import("lit-element").TemplateResult;
 }
-declare global {
-    interface HTMLElementTagNameMap {
-        'simple-button': SimpleButtonElement;
-    }
-}
 //# sourceMappingURL=simple-button.d.ts.map

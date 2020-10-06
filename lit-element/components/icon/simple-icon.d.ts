@@ -5,9 +5,4 @@ export declare class SimpleIconElement extends LitElement {
     constructor();
     render(): import("lit-element").TemplateResult;
 }
-declare global {
-    interface HTMLElementTagNameMap {
-        'simple-icon': SimpleIconElement;
-    }
-}
 //# sourceMappingURL=simple-icon.d.ts.map

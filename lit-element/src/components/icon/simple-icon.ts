@@ -52,9 +52,3 @@ export class SimpleIconElement extends LitElement {
     return name === 'search' ? SEARCH_ICON : MENU_ICON;
   }
 }
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'simple-icon': SimpleIconElement;
-  }
-}

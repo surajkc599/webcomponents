@@ -11,8 +11,8 @@ import { progressbarStyles } from './progressbar-styles';
 let ProgressbarElement = class ProgressbarElement extends LitElement {
     constructor() {
         super();
-        this.value = 0;
         // Default values
+        this.value = 0;
         this.classes = {
             'simple-progressbar': true,
             'simple-progressbar-active': this.value > 0 ? true : false,
@@ -21,11 +21,16 @@ let ProgressbarElement = class ProgressbarElement extends LitElement {
     }
     attributeChangedCallback(name, oldVal, newVal) {
         super.attributeChangedCallback(name, oldVal, newVal);
-        this.value = Number(newVal);
         // Update values when property is changed!
         if (name === 'value') {
             this.styles = { width: `${this.value}%` };
             this.classes = Object.assign(Object.assign({}, this.classes), { 'simple-progressbar-active': this.value > 0 ? true : false });
+            let event = new CustomEvent('progressupdate-event', {
+                detail: {
+                    message: this.value
+                }
+            });
+            this.dispatchEvent(event);
         }
     }
     render() {
@@ -43,12 +48,14 @@ let ProgressbarElement = class ProgressbarElement extends LitElement {
 ProgressbarElement.styles = progressbarStyles;
 __decorate([
     property({
-        type: Number
+        type: Number,
+        attribute: true,
+        reflect: true,
+        hasChanged: (newVal, oldVal) => {
+            return newVal !== oldVal;
+        },
     })
 ], ProgressbarElement.prototype, "value", void 0);
-__decorate([
-    property()
-], ProgressbarElement.prototype, "classes", void 0);
 ProgressbarElement = __decorate([
     customElement('simple-progressbar')
 ], ProgressbarElement);

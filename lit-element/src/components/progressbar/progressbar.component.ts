@@ -9,18 +9,23 @@ export class ProgressbarElement extends LitElement {
   static styles = progressbarStyles;
 
   @property({
-      type: Number
+    type: Number,
+    attribute: true,
+    reflect: true,
+    hasChanged: (newVal, oldVal) => {
+      return newVal !== oldVal;
+    },
   })
-  value = 0;
+  value;
 
-  @property()
   classes: Object;
-
   styles: Object;
 
   constructor() {
     super();
+
     // Default values
+    this.value = 0;
     this.classes = {
       'simple-progressbar': true,
       'simple-progressbar-active': this.value > 0 ? true : false,
@@ -30,8 +35,7 @@ export class ProgressbarElement extends LitElement {
 
   attributeChangedCallback(name: string, oldVal: string, newVal: string) {
     super.attributeChangedCallback(name, oldVal, newVal);
-    this.value = Number(newVal);
-    
+
     // Update values when property is changed!
     if (name === 'value') {
       this.styles = {width: `${this.value}%`};
@@ -39,6 +43,12 @@ export class ProgressbarElement extends LitElement {
         ...this.classes,
         'simple-progressbar-active': this.value > 0 ? true : false,
       };
+      let event = new CustomEvent('progressupdate-event', {
+        detail: {
+          message: this.value
+        }
+      });
+      this.dispatchEvent(event);
     }
   }
 
@@ -51,11 +61,5 @@ export class ProgressbarElement extends LitElement {
         ></div>
       </div>
     `;
-  }
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'simple-progressbar': ProgressbarElement;
   }
 }

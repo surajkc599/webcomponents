@@ -42,6 +42,16 @@
     }
     function animateProgress() {
       const progress = document.querySelector('simple-progressbar');
+      // Listen to custom event from Webcomponent
+      progress.addEventListener('progressupdate-event', (e) => {console.log(e)});
+
+      // Reset back to starting point
+      if (progress.value > 100) {
+        progress.value = 5;
+        progress.setAttribute('value', progress.value);
+      }
+
+      // Update value every interval of 300ms to see how WEB component reacts!
       const progressInterval = setInterval(() => {
         progress.value = progress.value + 10;
         progress.setAttribute('value', progress.value);
@@ -81,7 +91,7 @@
           style="width: 600px;"
         ></simple-progressbar>
       </section>
-      <simple-button onclick="animateProgress()">Increment</simple-button>
+      <simple-button type="secondary" onclick="animateProgress()">Increment</simple-button>
     </main>
   </body>
 </html>

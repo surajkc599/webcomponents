@@ -55,8 +55,3 @@ export class SimpleButtonElement extends LitElement {
   }
 }
 
-declare global {
-  interface HTMLElementTagNameMap {
-    'simple-button': SimpleButtonElement;
-  }
-}
