@@ -1,4 +1,4 @@
-#Overview
+# Overview
 
 An ivestigation to see how webcomponents have been evolved and how we can leverage those in different frameworks.
 
@@ -7,7 +7,11 @@ An ivestigation to see how webcomponents have been evolved and how we can levera
 3. StencilJS
 4. Svelte
 
+# What is the idea behind ?
+
 The idea is to create Simple progressbar component in all the above mentioned frameworks/libraries/compiler and to see which fits best for Design system or component library development.
+
+# what did i conclude ?
 
 StencilJS stands best because of:
 
@@ -18,3 +22,8 @@ StencilJS stands best because of:
 
 
 All the experimented source code is available in there respective directories.
+
+
+# How did the management at my client place perceive ?
+  
+  Interested in getting my presentations. contact me offline.
