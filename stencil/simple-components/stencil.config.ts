@@ -33,7 +33,7 @@ export const config: Config = {
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@angularsc/components',
-      directivesProxyFile: 'dist/angular/src/directives/proxies.ts',
+      directivesProxyFile: '../stencil-angular-output/src/directives/proxies.ts',
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
     reactOutputTarget({

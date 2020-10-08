@@ -20,6 +20,8 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface SimpleDropdown {
+    }
     interface SimpleProgressbar {
         /**
           * The value for progress indicator
@@ -34,6 +36,12 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLSimpleDropdownElement extends Components.SimpleDropdown, HTMLStencilElement {
+    }
+    var HTMLSimpleDropdownElement: {
+        prototype: HTMLSimpleDropdownElement;
+        new (): HTMLSimpleDropdownElement;
+    };
     interface HTMLSimpleProgressbarElement extends Components.SimpleProgressbar, HTMLStencilElement {
     }
     var HTMLSimpleProgressbarElement: {
@@ -42,6 +50,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "simple-dropdown": HTMLSimpleDropdownElement;
         "simple-progressbar": HTMLSimpleProgressbarElement;
     }
 }
@@ -60,6 +69,8 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface SimpleDropdown {
+    }
     interface SimpleProgressbar {
         /**
           * An event that is passed to parent component by emitting updated value
@@ -72,6 +83,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "simple-dropdown": SimpleDropdown;
         "simple-progressbar": SimpleProgressbar;
     }
 }
@@ -80,6 +92,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "simple-dropdown": LocalJSX.SimpleDropdown & JSXBase.HTMLAttributes<HTMLSimpleDropdownElement>;
             "simple-progressbar": LocalJSX.SimpleProgressbar & JSXBase.HTMLAttributes<HTMLSimpleProgressbarElement>;
         }
     }
